@@ -1,0 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"> <title>Employee List</title> </head> <body> <h1>Employee List</h1> <%@ page import="java.util.List" %> <%@ page import="com.example.Employee" %> <% List<Employee> employeeList = (List<Employee>)request.getAttribute("employeeList"); %> <table> <thead> <tr> <th>ID</th> <th>Name</th> <th>Salary</th> </tr> </thead> <tbody> <% for (Employee employee : employeeList) { %> <tr> <td><%= employee.getId() %></td> <td><%= employee.getName() %></td> <td><%= employee.getSalary() %></td> </tr> <% } %> </tbody> </table> <a href="<%= request.getContextPath() %>/employee">Create Employee</a> </body> </html>
